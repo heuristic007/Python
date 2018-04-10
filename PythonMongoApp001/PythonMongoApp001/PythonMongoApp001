@@ -1,0 +1,24 @@
+import pymongo
+# Connect to server
+client = pymongo.MongoClient('localhost', 27017)
+#client = pymongo.MongoClient("mongodb://heuristic:xxxxxxx@cluster0-shard-00-00-if7um.mongodb.net:27017,cluster0-shard-00-01-if7um.mongodb.net:27017,cluster0-shard-00-02-if7um.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin")
+# Select the database
+testdb = client.test
+# Drop collection
+print('Dropping collection person')
+testdb.person.drop()
+# Add a person
+print('Adding a person to collection person')
+employee = dict(name='Fred', age=30)
+testdb.person.insert(employee)
+# Fetch the first entry from collection
+person = testdb.person.find_one()
+if person:
+	print('Name: %s, Age: %s' % (person['name'], person['age']))
+# Fetch list of all databases
+print('DB\'s present on the system:')
+for db in client.database_names():
+	print(' %s' % db)
+# Close connection
+print('Closing client connection')
+client.close()
