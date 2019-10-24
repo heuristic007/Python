@@ -1,0 +1,10 @@
+10/25/2019 Install TensorFlow in PyCharm
+#PyCharm_ypk #Tensorflow_ypk
+
+To use Tensorflow in PyCharm, one has to do following steps:
+1. Start a new project in PyCharm (or, open a project)
+2. Click File menu, then Settings...
+3. A pop-up window open then select Project Interpreter under Project: (your project name)
+4. Click on plus sign(+) which is shown top of right side of new pop-up window.
+5. Type tensorflow and select required version by going to specific version option which is specified right side of bottom.
+6. Click on install package. 
